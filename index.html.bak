@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dwi Hadi Eka Syafitri — Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fdf6f8;
+      color: #3d2c38;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :root {
+      --pink-50: #fdf6f8;
+      --pink-100: #fcecf0;
+      --pink-200: #f8dae3;
+      --pink-300: #f4c4d3;
+      --pink-400: #f0a8bf;
+      --pink-500: #e88dab;
+      --pink-600: #d46a8e;
+      --pink-700: #b84d72;
+      --ink: #2d1f29;
+      --ink-soft: #4a3643;
+      --body: #5c4754;
+      --mute: #9a8694;
+      --canvas: #ffffff;
+      --surface-soft: #fdf6f8;
+      --surface-card: #fcecf0;
+      --hairline: #f0dce4;
+      --rounded: 16px;
+      --rounded-lg: 32px;
+      --pill: 9999px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #fdf6f8 0%, #fcecf0 40%, #f8dae3 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 24px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-photo img {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 20px 80px rgba(212,106,142,0.15), 0 0 0 4px rgba(255,255,255,0.6);
+    }
+    .hero-text .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink-500);
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .hero-text h1 .highlight {
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-600));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text .tagline {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--body);
+      margin: 1.2rem 0 2rem;
+      line-height: 1.8;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: left;
+    }
+    .hero-stat .num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--pink-600);
+      letter-spacing: -0.5px;
+    }
+    .hero-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--mute);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 100px 0; }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--ink);
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--pink-300);
+      margin: 0.8rem auto 0;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-card {
+      background: var(--canvas);
+      border-radius: var(--rounded-lg);
+      padding: 4rem;
+      box-shadow: 0 4px 40px rgba(244,196,211,0.12);
+      border: 1px solid rgba(240,168,191,0.15);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--body);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    .about-text .quote-card {
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--pink-600);
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--pink-300);
+      margin: 1.5rem 0;
+      background: var(--surface-soft);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+    }
+    .about-detail {
+      background: var(--surface-soft);
+      border-radius: var(--rounded);
+      padding: 2rem;
+      border: 1px solid var(--hairline);
+    }
+    .about-detail h3 {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--pink-500);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .about-detail .row {
+      display: flex;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .about-detail .row:last-child { border-bottom: none; }
+    .about-detail .row .key {
+      flex: 0 0 120px;
+      font-size: 0.75rem;
+      color: var(--mute);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .about-detail .row .val {
+      flex: 1;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    /* ─── ARTWORK ─── */
+    .artwork-section { background: var(--surface-soft); }
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .artwork-item {
+      background: var(--canvas);
+      border-radius: var(--rounded-lg);
+      overflow: hidden;
+      transition: all 0.35s ease;
+      border: 1px solid var(--hairline);
+    }
+    .artwork-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 60px rgba(244,196,211,0.2);
+    }
+    .artwork-item img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+    .artwork-body { padding: 2rem; }
+    .artwork-body .title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .artwork-body .medium {
+      font-size: 0.8rem;
+      color: var(--pink-500);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+    }
+    .artwork-body .desc {
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.7;
+    }
+    .artwork-body .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+    }
+    .artwork-body .pill-group span {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--pill);
+      background: var(--surface-card);
+      color: var(--pink-600);
+      border: 1px solid var(--hairline);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── TIMELINE ─── */
+    .journey-section { background: var(--canvas); }
+    .timeline { max-width: 680px; margin: 0 auto; }
+    .tl-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      flex: 0 0 40px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .tl-dot .dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--pink-300);
+      border: 3px solid var(--canvas);
+      box-shadow: 0 0 0 2px var(--pink-300);
+    }
+    .tl-line {
+      position: absolute;
+      top: 44px;
+      bottom: -2.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--pink-300), var(--pink-200), transparent);
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content {
+      flex: 1;
+      background: var(--surface-soft);
+      border-radius: var(--rounded);
+      padding: 1.5rem 2rem;
+      border: 1px solid var(--hairline);
+    }
+    .tl-content .date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--pink-500);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tl-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0.3rem 0 0.6rem;
+    }
+    .tl-content p {
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.7;
+    }
+    .tl-content .badge {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: var(--pill);
+      background: var(--pink-200);
+      color: var(--pink-700);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── QUOTE ─── */
+    .quote-section {
+      background: linear-gradient(160deg, var(--surface-soft), var(--surface-card));
+    }
+    .quote-block {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-block blockquote {
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--mute);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── WRITING ─── */
+    .writing-section { background: var(--surface-soft); }
+    .writing-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--canvas);
+      border-radius: var(--rounded-lg);
+      padding: 3rem;
+      border: 1px solid var(--hairline);
+      box-shadow: 0 4px 40px rgba(244,196,211,0.08);
+    }
+    .writing-card .pub-date {
+      font-size: 0.75rem;
+      color: var(--pink-500);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .writing-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0.5rem 0 1.2rem;
+    }
+    .writing-card .body {
+      font-size: 0.95rem;
+      color: var(--body);
+      line-height: 1.8;
+    }
+    .writing-card .body p { margin-bottom: 1rem; }
+    .writing-card .body .block-quote {
+      font-style: italic;
+      color: var(--ink-soft);
+      padding: 1rem 1.5rem;
+      border-left: 3px solid var(--pink-300);
+      background: var(--surface-soft);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      margin: 1.2rem 0;
+    }
+    .writing-card .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--hairline);
+    }
+    .writing-card .tag-row span {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--pill);
+      background: var(--surface-card);
+      color: var(--pink-600);
+      border: 1px solid var(--hairline);
+      font-weight: 500;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 3rem 24px;
+      color: var(--mute);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--hairline);
+      background: var(--canvas);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .hero-photo img { max-width: 260px; }
+      .hero-stats { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .artwork-grid { grid-template-columns: 1fr; }
+      .about-card { padding: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: auto; padding: 60px 24px; }
+      .hero-photo img { max-width: 200px; }
+      .hero-text .tagline { font-size: 0.95rem; }
+      .tl-item { gap: 1rem; }
+      .tl-dot { flex: 0 0 30px; }
+      .tl-dot .dot { width: 30px; height: 30px; }
+      .writing-card { padding: 1.5rem; }
+      .about-detail .row { flex-direction: column; }
+      .about-detail .row .key { flex: none; margin-bottom: 0.2rem; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Dwi Hadi Eka Syafitri">
+    </div>
+    <div class="hero-text">
+      <div class="label">Portofolio Seni Rupa</div>
+      <h1>
+        <span class="highlight">Dwi Hadi Eka</span> Syafitri
+      </h1>
+      <p class="tagline">
+        Mengabadikan kehidupan lewat garis, warna, dan kata.<br>
+        Seorang perupa muda yang menuangkan jiwa ke dalam kanvas.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">01</div>
+          <div class="lbl">Pameran Seni</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">01</div>
+          <div class="lbl">Karya Utama</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">17</div>
+          <div class="lbl">Termuda di Pameran</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Tentang</h2>
+    <div class="about-card">
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>Dwi Hadi Eka Syafitri</strong> adalah seorang seniman muda yang percaya bahwa seni adalah bahasa universal untuk menyuarakan apa yang sulit diucapkan. Setiap goresan kuasnya adalah catatan perjalanan, pencarian makna, dan ungkapan perasaan yang tak terbendung.</p>
+          <p>Dengan <strong>Lalita</strong> — karya perdananya — ia menyapa dunia. Sebuah lukisan yang lahir dari keyakinan bahwa setiap wanita memiliki kecantikannya sendiri, dan bahwa mimpi adalah kekuatan yang tak terlihat namun tak terkalahkan.</p>
+          <div class="quote-card">
+            &ldquo;Lalita ingin menyampaikan pesan pada seluruh wanita bahwa dengan apapun yang kita miliki ataupun tidak miliki, kita akan tetap menjadi wanita cantik yang dapat menjadi apapun dengan tekad dan terus bermimpi.&rdquo;
+          </div>
+          <p>Di usianya yang masih sangat muda, ia telah menorehkan jejak di pameran bergengsi dan terus berkarya. Setiap kanvas adalah ruang di mana ia menemukan kebebasan, dan setiap lukisan adalah doa-doa kecil yang ia titipkan pada warna.</p>
+        </div>
+        <div class="about-detail">
+          <h3>Profil</h3>
+          <div class="row"><span class="key">Nama</span><span class="val">Dwi Hadi Eka Syafitri</span></div>
+          <div class="row"><span class="key">Panggilan</span><span class="val">Dwi</span></div>
+          <div class="row"><span class="key">Bidang</span><span class="val">Seni Rupa (Lukisan) &middot; Penulisan Kreatif</span></div>
+          <div class="row"><span class="key">Media</span><span class="val">Lukisan akrilik di kanvas</span></div>
+          <div class="row"><span class="key">Gaya</span><span class="val">Figuratif wanita &middot; Ekspresionisme &middot; Simbolisme</span></div>
+          <div class="row"><span class="key">Kota</span><span class="val">Pontianak, Kalimantan Barat</span></div>
+          <div class="row"><span class="key">Pencapaian</span><span class="val">Seniman termuda di Pameran Wajah Kartini (2024)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KARYA -->
+<section class="artwork-section">
+  <div class="container">
+    <h2 class="section-title">Karya Seni</h2>
+    <div class="artwork-grid">
+      <div class="artwork-item">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj01DfLCElHQkSUj8ovej7bKX3SgY4K846iQBaOW6zzBINjeBjEyytqTfrjxxuZcX06qq25LBULuVykQpGKSi9ICOmElfHX4SmGQ6K38Upj9QCve8qrOoyartCiPw7gz_An8MtfloJXqpJcU9WN1maojel3lBp-V89j_TC_23DBY4zc13fTTllKgc_MxsG/s320/IMG_20250619_134718.jpg"
+          alt="Lalita - Lukisan Karya Dwi Hadi Eka Syafitri"
+          loading="lazy"
+        >
+        <div class="artwork-body">
+          <div class="title">Lalita</div>
+          <div class="medium">Lukisan Akrilik di Kanvas</div>
+          <p class="desc">
+            <strong>Lalita</strong> &mdash; berasal dari bahasa Sansekerta yang berarti <em>cantik</em> atau <em>menawan</em>. Karya ini adalah lukisan figuratif wanita dengan warna-warna hangat yang merepresentasikan kecantikan, kekuatan, dan semangat tiada henti. Terinspirasi dari filosofi Kartini dan keyakinan bahwa setiap wanita bisa menjadi apa pun dengan tekad dan mimpi.
+          </p>
+          <div class="pill-group">
+            <span>Akrilik</span>
+            <span>Figuratif</span>
+            <span>Simbolisme</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="artwork-item">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4hCIN212_j6JevhtaOfmeGnp-ePWeGfr4-yGpL43Y8CDW39bpij7Ok6qDTSUvaB2WeUGQPCMNm43QHrVPK35a2augVJGPdagdjz3RQcOE-FLuTzyuYXd4kLrEBrpjvrejImqg7SVQMMmECoa2MbZ3HiJX0F61N2gCXlkmB5VDmoDSozo6mERmnuVi8Eo8/s320/IMG_20250619_135237.jpg"
+          alt="Proses Kreatif Dwi Hadi Eka Syafitri"
+          loading="lazy"
+        >
+        <div class="artwork-body">
+          <div class="title">Proses Kreatif</div>
+          <div class="medium">Di Balik Kanvas</div>
+          <p class="desc">
+            Setiap karya lahir dari proses yang intim &mdash; tangan yang bergerak bebas di atas kanvas, warna yang berbaur satu sama lain, dan perasaan yang mengalir lewat setiap goresan kuas. Dokumentasi ini menangkap momen ketika Lalita mulai menemukan bentuknya.
+          </p>
+          <div class="pill-group">
+            <span>Proses</span>
+            <span>Dokumentasi</span>
+            <span>Studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERJALANAN -->
+<section class="journey-section">
+  <div class="container">
+    <h2 class="section-title">Perjalanan Pameran</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">
+          <div class="dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <div class="date">21 April 2024</div>
+          <h3>Wajah Kartini</h3>
+          <p>
+            Pameran seni rupa bertajuk <strong>Seniman Perempuan</strong> yang diselenggarakan oleh <strong>Gantari Nawasena Society</strong> di Pontianak. Sebuah pameran yang merayakan ekspresi perempuan melalui seni visual.
+            <br><br>
+            <strong>Dwi lolos sebagai seniman termuda</strong> pada hari itu &mdash; di usianya yang baru menginjak <strong>17 tahun</strong>. Karya perdananya yang berjudul Lalita berhasil mencuri perhatian dan menjadi bagian dari ruang pameran yang penuh makna. Pengalaman ini bukan sekadar pameran, melainkan penegasan bahwa ia tidak sendiri dalam perjalanan artistiknya.
+          </p>
+          <span class="badge">Seniman Termuda</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">
+          <div class="dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-content">
+          <div class="date">2024 &mdash; Sekarang</div>
+          <h3>Berkarya dan Bertumbuh</h3>
+          <p>
+            Setelah pameran perdana, perjalanan artistik terus berlanjut. Setiap karya baru adalah kesempatan untuk mengeksplorasi teknik, warna, dan makna yang lebih dalam. Filosofi yang dipegang teguh:
+            <br><br>
+            &ldquo;Teruslah bermimpi, teruslah bermimpi, bermimpilah selama engkau dapat bermimpi. Bila tiada bermimpi, apakah jadinya hidup!&rdquo;
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-block">
+      <blockquote>
+        &ldquo;Lalita ingin menyampaikan pesan pada seluruh wanita bahwa dengan apapun yang kita miliki ataupun tidak miliki, kita akan tetap menjadi wanita cantik yang dapat menjadi apapun dengan tekad dan terus bermimpi. Bagaimana jalannya kehidupan ini tanpa mimpi? Teruslah bermimpi dan wujudkan dengan kekuatan kita.&rdquo;
+      </blockquote>
+      <cite>&mdash; Dwi Hadi Eka Syafitri, tentang karyanya Lalita</cite>
+    </div>
+  </div>
+</section>
+
+<!-- TULISAN -->
+<section class="writing-section">
+  <div class="container">
+    <h2 class="section-title">Tulisan</h2>
+    <div class="writing-card">
+      <div class="pub-date">18 Juni 2025</div>
+      <h3>Lalita di Pameran Wajah Kartini</h3>
+      <div class="body">
+        <p>Pameran pertama yang diikuti oleh Dwi Hadi Eka Syafitri. Pada tanggal 21 April 2024 telah dilaksanakan Pameran seni rupa &ldquo;Seniman Perempuan&rdquo; bertajuk &ldquo;Wajah Kartini&rdquo; yang diselenggarakan oleh Gantari Nawasena Society. Alangkah bahagianya ia lolos sebagai seniman termuda pada hari itu. Lalita, karya kecilnya, ikut serta di ruang pameran tersebut.</p>
+
+        <p>Karya ini berjudul <strong>Lalita</strong>, diambil dari bahasa Sansekerta yang berarti &ldquo;cantik&rdquo; atau &ldquo;menawan&rdquo;.</p>
+
+        <p>Semuanya menyenangkan dan membahagiakan. Pengalaman pertama yang ia rasakan di usia ke-17 tahun itu bak kejutan yang tak disangka-sangka. Banyak hal baru yang ia temui di cerita perjalanan ini. Banyak orang yang juga mengekspresikan diri lewat visual seperti dirinya.</p>
+
+        <div class="block-quote">
+          &ldquo;Teruslah bermimpi, teruslah bermimpi, bermimpilah selama engkau dapat bermimpi! Bila tiada bermimpi, apakah jadinya hidup! Kehidupan yang sebenarnya kejam.&rdquo;
+          <br>&mdash; R.A. Kartini
+        </div>
+
+        <p>&ldquo;Aku tak sendiri,&rdquo; ucapnya pada saat itu.</p>
+      </div>
+      <div class="tag-row">
+        <span>Kartini</span>
+        <span>Lukisan</span>
+        <span>Pameran</span>
+        <span>Pontianak</span>
+        <span>Wajah Kartini</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Dibuat dengan sepenuh hati untuk Dwi Hadi Eka Syafitri</p>
+  <p style="margin-top: 0.3rem;">&copy; 2024 &ndash; 2026 &middot; Semua konten milik seniman</p>
+</footer>
+
+</body>
+</html>
