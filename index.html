@@ -972,15 +972,19 @@ const nav = document.querySelector('#nav');
 const progressBar = document.querySelector('#progressBar');
 const btt = document.querySelector('#btt');
 
+let ticking = false;
 window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 60);
-
-  const dh = document.documentElement;
-  const total = dh.scrollHeight - dh.clientHeight;
-  progressBar.style.width = total > 0 ? Math.min(y / total * 100, 100) + '%' : '0%';
-
-  btt.classList.toggle('show', y > 500);
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    const dh = document.documentElement;
+    const total = dh.scrollHeight - dh.clientHeight;
+    progressBar.style.width = total > 0 ? Math.min(y / total * 100, 100) + '%' : '0%';
+    btt.classList.toggle('show', y > 500);
+    ticking = false;
+  });
 }, { passive: true });
 
 btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
