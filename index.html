@@ -47,6 +47,23 @@ a{color:inherit;text-decoration:none}
   --safe-b:env(safe-area-inset-bottom,0px);--safe-l:env(safe-area-inset-left,0px);
   --safe-r:env(safe-area-inset-right,0px)
 }
+
+/* ============ PERFORMANCE ============ */
+body{
+  -webkit-tap-highlight-color:transparent;
+  text-size-adjust:100%
+}
+button,a,.art-item,.filter-btn,.nav-toggle,.theme-toggle,.btt,.lightbox-close,.lightbox-nav{
+  touch-action:manipulation
+}
+.reveal,.petal,.hero-photo .ring,.hero-photo .sparkle,.frame-wrap,.btt,.hero-bg .orb-1,.hero-bg .orb-2,.hero-bg .orb-3{
+  will-change:transform,opacity;
+  transform:translateZ(0)
+}
+section:not(.hero):not(.q-sec):not(.footer):not(.stats-section){
+  content-visibility:auto;
+  contain-intrinsic-size:auto 500px
+}
 [data-theme="dark"]{
   --cream:#1a1517;--cream-card:#231d1f;--rose-50:#2e2023;--rose-100:#3d252a;
   --rose-200:#4f2d34;--rose-300:#7a3f49;--rose-400:#d65c68;--rose-500:#e8757d;
